@@ -15,7 +15,7 @@ const crawler = new Crawler({
       for( let key in data) {
         let arr = data[key]
         arr.forEach((item) => {
-          let content = item.digest
+          let content = item.img ? item.digest + `<img src="${item.img}" />` : item.digest
           let title = content.slice(0,20)
           if(title && content) {
             Thread.findBySubject(title).then((one) => {
