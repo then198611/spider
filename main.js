@@ -3,7 +3,7 @@ const NET = require('./sites/net')
 const JOKE = require('./sites/JokeJi')
 
 // QSBK.spider()
-cron.schedule('*/300 * * * *', () => {
+cron.schedule('*/30 * * * *', () => {
   console.log('=======================begin=====================')
   console.log(new Date())
 
