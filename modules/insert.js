@@ -9,7 +9,7 @@ const Insert = (obj = {}) => {
   if(obj.title && obj.content) {
     Post.findByContent(obj.content).then((one) => {
       if(!one){
-        let uid = Utils.getRandom()
+        let uid = Utils.getRandom(20)
         Discussion.createOne({
           title: obj.title,
           slug: obj.title,
