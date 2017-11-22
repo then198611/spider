@@ -1,6 +1,6 @@
 
 
-const Thread = require('../model/Thread')
+const Insert = require('../modules/insert')
 const Crawler = require("crawler");
 const Moment = require('moment')
 
@@ -17,17 +17,10 @@ const crawler = new Crawler({
         arr.forEach((item) => {
           let content = item.img ? item.digest + `<img src="${item.img}" />` : item.digest
           let title = content.slice(0,20)
-          if(title && content) {
-            Thread.findBySubject(title).then((one) => {
-              if(!one){
-                Thread.createOne({
-                  subject: title,
-                  content: content,
-                  createdAt: Moment().format('YYYY-MM-DD h:mm:ss')
-                })
-              }
-            })
-          }
+          Insert({
+            title: title,
+            content: content
+          })
         });
       }
     }
