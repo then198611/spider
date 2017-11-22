@@ -12,7 +12,7 @@ const Post = seq.define('fl_posts',{
     },
     time: {
         type: Sequelize.DATE,
-        defaultValue: new Date()
+        defaultValue: Sequelize.NOW
     },
     "user_id": {
         type: Sequelize.INTEGER
