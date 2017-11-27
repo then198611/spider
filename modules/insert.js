@@ -3,6 +3,7 @@ const Post = require('../model/Post')
 const Discussion = require('../model/Discussion')
 const DiscussionTag = require('../model/DiscussionTag')
 const User = require('../model/User')
+const Tag = require('../model/Tag')
 const Utils = require('../modules/utils')
 
 const Insert = (obj = {}) => {
@@ -39,6 +40,10 @@ const Insert = (obj = {}) => {
                 discussions_count: Sequelize.literal('`discussions_count` +1'),
                 comments_count: Sequelize.literal('`comments_count` +1')
               })
+            })
+            Tag.updateById(1, {
+              discussions_count: Sequelize.literal('`discussions_count` +1'),
+              last_discussion_id: dis.id
             })
           })
         })
