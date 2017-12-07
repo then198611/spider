@@ -33,7 +33,8 @@ const Insert = (obj = {}) => {
               last_post_id: post.id
             })
             DiscussionTag.createOne({
-              discussion_id: dis.id
+              discussion_id: dis.id,
+              tag_id: obj.tag_id ? obj.tag_id : 1
             })
             User.findById(uid).then((user) => {
               User.updateById(uid,{

@@ -6,6 +6,7 @@ const Moment = require('moment')
 
 const crawler = new Crawler({
   maxConnections: 10,
+  jQuery: false,
   callback: function(error, res, done){
     if(error){
       console.log(error)
